@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>Draw On Plane</title>
+
+		<style type="text/css">
+            canvas { 
+                width: 99%; 
+                height: 99%;
+            }
+        </style>
+        
+        <script src="lib/drawOnPlane.js"></script>
+        <script src="lib/processGeoJSON.js"></script>
+        
+        <!-- Three.js library and movement controls -->
+        <script src="lib/three.min.js"></script>
+        <script src="lib/TrackballControls.js"></script>   
+        
+        <!-- Test Files -->
+        <script src="test_geojson/largest_cities.js"></script>
+        <script src="test_geojson/pop_places.js"></script>
+        <script src="test_geojson/wa_roads.js"></script>
+        <script src="test_geojson/countries_states.js"></script>
+        
+    </head>
+	
+    <body>
+		
+		<script>
+        
+        //New scene and camera
+			var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 0.5, 1000 );
+        
+        //New Renderer
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+
+        //Add lighting
+            scene.add(new THREE.AmbientLight(0x333333));
+            var light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.set(5,3,5);
+            scene.add(light);
+        
+        //Create a square plane
+            var plane_geometry = new THREE.PlaneGeometry(10,10,4,4);
+            var material = new THREE.MeshBasicMaterial({
+                    wireframe: true,
+                    color: 'blue',
+                    side: THREE.DoubleSide,
+                    transparent: true
+                });
+            var square = new THREE.Mesh(plane_geometry, material);
+            scene.add(square);
+            
+        //Create an object from geojson
+        
+            processGeoJSON(wa_roads, 10);
+            
+        //Set the camera position
+            camera.position.z = 10;
+            camera.position.y = -10;
+            camera.lookAt(0,0,0);
+            
+        //Enable controls
+            var controls = new THREE.TrackballControls(camera);
+            
+        //Render the image
+            function render() {
+                controls.update();
+                requestAnimationFrame(render);
+                //square.rotation.y += 0.001;      
+                renderer.render(scene, camera);
+            }
+            
+            render();
+            
+		</script>
+	</body>
+</html>

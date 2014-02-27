@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Draw On Sphere</title>
+
+		<style type="text/css">
+            canvas { 
+                width: 99%; 
+                height: 99%;
+            }
+        </style>
+                
+        <script src="lib/drawOnSphere.js"></script>
+        
+        <!-- Three.js library and movement controls -->
+        <script src="lib/three.min.js"></script>
+        <script src="lib/TrackballControls.js"></script>   
+        
+        <!-- Test Files -->
+        <script src="test_geojson/countries_states.js"></script>
+        <script src="test_geojson/largest_cities.js"></script>
+        <script src="test_geojson/pop_places.js"></script>
+        
+    </head>
+	
+    <body>
+		
+		<script type="text/JavaScript">
+        //New scene and camera
+			var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.5, 1000 );
+        
+        //New Renderer
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            document.body.appendChild( renderer.domElement );
+
+        //Add lighting
+            scene.add(new THREE.AmbientLight(0x333333));
+            
+           
+        //Create an object from geojson
+            
+            var geometry = new THREE.SphereGeometry(10,32,32);
+            var material = new THREE.MeshPhongMaterial({
+                    wireframe: true,
+                    transparent: true
+                });
+            var sphere = new THREE.Mesh(geometry, material);
+            scene.add(sphere);
+            
+            //(pop_places, 10);
+            drawOnSphere(countries_states, 10);
+            
+        //Set the camera position
+            camera.position.z = 20;            
+            
+        //Enable controls
+            var controls = new THREE.TrackballControls(camera);
+            
+        //Render the image
+            function render() {
+                controls.update();
+                requestAnimationFrame(render);
+                //square.rotation.y += 0.001;      
+                renderer.render(scene, camera);
+            }
+            
+            render();
+            
+		</script>
+	</body>
+</html>
