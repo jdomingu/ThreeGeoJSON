@@ -19,6 +19,7 @@
         <script src="test_geojson/countries_states.js"></script>
         <script src="test_geojson/largest_cities.js"></script>
         <script src="test_geojson/pop_places.js"></script>
+        <script src="test_geojson/single_feature.js"></script>
         
     </head>
 	
@@ -48,7 +49,7 @@
             var sphere = new THREE.Mesh(geometry, material);
             scene.add(sphere);
             
-            //(pop_places, 10);
+//drawOnSphere(geoJSON_here, sphere_radius)
             drawOnSphere(countries_states, 10);
             
         //Set the camera position
