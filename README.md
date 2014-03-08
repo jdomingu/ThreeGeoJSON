@@ -5,6 +5,9 @@ This project aims to be a simple way to render geojson data in 3D with three.js.
 
 **Work in progress...**
 
+Demo:
+http://jdomingu.github.io/ThreeGeoJSON/
+
 Enter the following code to render a geoJSON file in 3D:
 ```
 var x = new ThreeGeo.Layer(json, radius, shape, {options});
