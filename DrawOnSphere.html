@@ -1,20 +1,13 @@
 <html>
 	<head>
 		<title>Draw On Sphere</title>
-
-		<style type="text/css">
-            canvas { 
-                width: 99%; 
-                height: 99%;
-            }
-        </style>
                 
         <script src="lib/drawOnSphere.js"></script>
-        
+                
         <!-- Three.js library and movement controls -->
         <script src="lib/three.min.js"></script>
-        <script src="lib/TrackballControls.js"></script>   
-        
+        <script src="lib/TrackballControls.js"></script>  
+
         <!-- Test Files -->
         <script src="test_geojson/countries_states.js"></script>
         <script src="test_geojson/largest_cities.js"></script>
@@ -40,8 +33,8 @@
             
            
         //Create an object from geojson
-            
             var geometry = new THREE.SphereGeometry(10,32,32);
+            //geometry.applyMatrix( new THREE.Matrix4().makeScale( 1.0, 1.0, 1.5 ) ); Try 6378137.0, 6356752.314140
             var material = new THREE.MeshPhongMaterial({
                     wireframe: true,
                     transparent: true
@@ -50,7 +43,12 @@
             scene.add(sphere);
             
 //drawOnSphere(geoJSON_here, sphere_radius)
-            drawOnSphere(countries_states, 10);
+            var my_shape = new ThreeGeo.Layer(countries_states, 10, {
+                color: 'red',
+                size: 0.5
+            });
+            my_shape.drawGeometry();
+
             
         //Set the camera position
             camera.position.z = 20;            
