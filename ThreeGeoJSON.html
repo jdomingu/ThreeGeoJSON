@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Draw On Sphere</title>
+		<title>ThreeGeoJSON Demo</title>
                 
         <script src="lib/threeGeoJSON.js"></script>
                 
@@ -32,9 +32,9 @@
             scene.add(new THREE.AmbientLight(0x333333));
             
            
-        //Create an object from geojson
+        //Create a sphere to make visualization easier.
             var geometry = new THREE.SphereGeometry(10,32,32);
-            //geometry.applyMatrix( new THREE.Matrix4().makeScale( 1.0, 1.0, 1.5 ) ); Try 6378137.0, 6356752.314140
+            //For ellipsoid testing: geometry.applyMatrix( new THREE.Matrix4().makeScale( 1.0, 1.0, 1.5 ) ); Try 6378137.0, 6356752.314140
             var material = new THREE.MeshPhongMaterial({
                     wireframe: true,
                     transparent: true
@@ -42,12 +42,11 @@
             var sphere = new THREE.Mesh(geometry, material);
             scene.add(sphere);
             
-//drawOnSphere(geoJSON_here, sphere_radius)
-            var my_shape = new ThreeGeo.Layer(countries_states, 10, {
-                color: 'red',
-                size: 0.5
+        //Draw the GeoJSON
+            var my_json = new ThreeGeo.Layer(countries_states, 10, 'sphere', {
+                color: 'green'
             });
-            my_shape.drawGeometry();
+            my_json.drawGeometry();            
 
             
         //Set the camera position
