@@ -30,5 +30,5 @@ var my_json = new ThreeGeo.Layer(countries_states, 10, 'sphere', {
 my_json.drawGeometry();
 ```
 
-This creates a geoJSON object on a sphere. See ThreeGeoJSON.html for a complete example.
+This creates a geoJSON object on a sphere.  
 
