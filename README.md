@@ -42,5 +42,3 @@ Add the json.js file to the head of your HTML page. For example, you might add t
 ```
 <script src="test_geojson/json.js"></script>
 ```
-
-
