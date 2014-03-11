@@ -5,9 +5,10 @@ This project aims to be a simple way to render geojson data in 3D with three.js.
 
 **Work in progress...**
 
-Demo:
+###Demo
 http://jdomingu.github.io/ThreeGeoJSON/
 
+###Instructions
 Enter the following code to render a geoJSON file in 3D:
 ```
 var x = new ThreeGeo.Layer(json, radius, shape, {options});
@@ -33,12 +34,12 @@ drawThreeGeo(json, 10, 'sphere', {
 
 This creates a geoJSON object on a sphere. 
 
-**Important:**
-The demo uses the jquery $.getJSON method to pass the geoJSON to the function. You can only use this method if the geoJSON is hosted on a server that allows requests for json data. To test this code locally, complete the following steps: 
+###Important Note About Parsing geoJSON
+The demo uses the jquery $.getJSON method to pass the geoJSON to the drawThreeGeo function. You can only use this method if the geoJSON is hosted on a server that allows requests for json data. To test this code locally, complete the following steps: 
 
-Add ```var json =``` to the beginning of the geoJSON file that you want to display.
-Change the file extension of your geoJSON files to ".js".
-Add the json.js file to the head of your HTML page. For example, you might add the following line:
+1. Add ```var json =``` to the beginning of the geoJSON file that you want to display.
+2. Change the file extension of your geoJSON files to ".js".
+3. Add the json.js file to the head of your HTML page. For example, you might add the following line:
 ```
 <script src="test_geojson/json.js"></script>
 ```
