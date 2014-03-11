@@ -4,15 +4,10 @@
                 
         <script src="lib/threeGeoJSON.js"></script>
                 
-        <!-- Three.js library and movement controls -->
+        <!-- Three.js library, movement controls, and jquery for the geojson-->
         <script src="lib/three.min.js"></script>
         <script src="lib/TrackballControls.js"></script>  
-
-        <!-- Test Files -->
-        <script src="test_geojson/countries_states.js"></script>
-        <script src="test_geojson/largest_cities.js"></script>
-        <script src="test_geojson/pop_places.js"></script>
-        <script src="test_geojson/single_feature.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
         
     </head>
 	
@@ -43,11 +38,12 @@
             scene.add(sphere);
             
         //Draw the GeoJSON
-            var my_json = new ThreeGeo.Layer(countries_states, 10, 'sphere', {
-                color: 'green'
-            });
-            my_json.drawGeometry();            
-
+            var test_json = $.getJSON("test_geojson/countries_states.geojson", function (data) { 
+                drawThreeGeo(data, 10, 'sphere', {
+                    color: 'green'
+                })    
+            });          
+            
             
         //Set the camera position
             camera.position.z = 20;            
