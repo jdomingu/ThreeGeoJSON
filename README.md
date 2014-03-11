@@ -29,14 +29,12 @@ drawThreeGeo(json, 10, 'sphere', {
 }); 
 ```
 
-This creates a geoJSON object on a sphere. 
-
 ###Important Note About Parsing geoJSON
 The demo uses the jquery $.getJSON method to pass the geoJSON to the drawThreeGeo function. You can only use this method if the geoJSON is hosted on a server that allows requests for json data. To test this code locally, complete the following steps: 
 
 1. Add ```var json =``` to the beginning of the geoJSON file that you want to display.
-2. Change the file extension of your geoJSON files to ".js".
-3. Add the json.js file to the head of your HTML page. For example, you might add the following line:
+2. Change the file extension of your geoJSON file to ```.js```.
+3. Add the ```json.js``` file to the head of your HTML page. For example, you might add the following line:
 ```
 <script src="test_geojson/json.js"></script>
 ```
