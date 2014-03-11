@@ -11,9 +11,6 @@ http://jdomingu.github.io/ThreeGeoJSON/
 ###Instructions
 Enter the following code to render a geoJSON file in 3D:
 ```
-var x = new ThreeGeo.Layer(json, radius, shape, {options});
-x.drawGeometry();
-
 drawThreeGeo(json, radius, shape, {options});   
 ```
 You can enter the following parameters: 
