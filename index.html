@@ -29,7 +29,6 @@
            
         //Create a sphere to make visualization easier.
             var geometry = new THREE.SphereGeometry(10,32,32);
-            //For ellipsoid testing: geometry.applyMatrix( new THREE.Matrix4().makeScale( 1.0, 1.0, 1.5 ) ); Try 6378137.0, 6356752.314140
             var material = new THREE.MeshPhongMaterial({
                     wireframe: true,
                     transparent: true
@@ -40,11 +39,10 @@
         //Draw the GeoJSON
             var test_json = $.getJSON("test_geojson/countries_states.geojson", function (data) { 
                 drawThreeGeo(data, 10, 'sphere', {
-                    color: 'green'
+                    color: 'red'
                 })    
             });          
-            
-            
+                        
         //Set the camera position
             camera.position.z = 20;            
             
@@ -54,8 +52,7 @@
         //Render the image
             function render() {
                 controls.update();
-                requestAnimationFrame(render);
-                //square.rotation.y += 0.001;      
+                requestAnimationFrame(render);    
                 renderer.render(scene, camera);
             }
             
