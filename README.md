@@ -6,6 +6,8 @@ This project aims to be a simple way to render geojson data in 3D with three.js.
 ###Demo
 http://jdomingu.github.io/ThreeGeoJSON/
 
+Note: To view the demo, ensure that your browser supports WebGL rendering.
+
 ###Instructions
 Enter the following code to render a geoJSON file in 3D:
 ```
