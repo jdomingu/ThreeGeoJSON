@@ -21,6 +21,7 @@ You can enter the following parameters:
 | radius | The radius of the sphere that you want to render. |
 | shape | The 3D shape to use when rendering the geoJSON. Either 'sphere' or 'plane'. |
 | options | The threeJS options that you want to use to style the line or particle material. |
+| container | Optional. THREE.Object3D instance which will be used as a container for threejson shapes. |
 
 For example, you might enter:
 ```
