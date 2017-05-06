@@ -26,6 +26,8 @@
             renderer.setSize(window.innerWidth, window.innerHeight);
             document.body.appendChild(renderer.domElement);
 
+            var planet = new THREE.Object3D();
+
             //Create a sphere to make visualization easier.
             var geometry = new THREE.SphereGeometry(10, 32, 32);
             var material = new THREE.MeshBasicMaterial({
@@ -34,14 +36,22 @@
                 transparent: true
             });
             var sphere = new THREE.Mesh(geometry, material);
-            scene.add(sphere);
+            planet.add(sphere);
 
             //Draw the GeoJSON
-            var test_json = $.getJSON("test_geojson/countries_states.geojson", function(data) {
+            $.getJSON("test_geojson/countries_states.geojson", function(data) {
                 drawThreeGeo(data, 10, 'sphere', {
-                    color: 'red'
-                })
+                    color: 0x80FF80
+                }, planet);
             });
+
+            $.getJSON("test_geojson/rivers.geojson", function(data) {
+                drawThreeGeo(data, 10, 'sphere', {
+                    color: 0x8080FF
+                }, planet);
+            });
+
+            scene.add(planet);
 
             //Set the camera position
             camera.position.z = 20;
