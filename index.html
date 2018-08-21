@@ -39,7 +39,7 @@
             planet.add(sphere);
 
             //Draw the GeoJSON
-            $.getJSON("test_geojson/countries_states.geojson", function(data) {
+            $.getJSON("test_geojson/countries.json", function(data) {
                 drawThreeGeo(data, 10, 'sphere', {
                     color: 0x80FF80
                 }, planet);
