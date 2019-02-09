@@ -31,7 +31,7 @@
             //Create a sphere to make visualization easier.
             var geometry = new THREE.SphereGeometry(10, 32, 32);
             var material = new THREE.MeshBasicMaterial({
-                color: 0x333333,
+                color: '#333333',
                 wireframe: true,
                 transparent: true
             });
@@ -39,15 +39,9 @@
             planet.add(sphere);
 
             //Draw the GeoJSON
-            $.getJSON("test_geojson/countries.json", function(data) {
+            $.getJSON("test_geojson/countries.geojson", function(data) {
                 drawThreeGeo(data, 10, 'sphere', {
-                    color: 0x80FF80
-                }, planet);
-            });
-
-            $.getJSON("test_geojson/rivers.geojson", function(data) {
-                drawThreeGeo(data, 10, 'sphere', {
-                    color: 0x8080FF
+                    color: 'green'
                 }, planet);
             });
 
