@@ -7,6 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "dev": "parcel index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,5 +25,12 @@
   "bugs": {
     "url": "https://github.com/jdomingu/ThreeGeoJSON/issues"
   },
-  "homepage": "https://github.com/jdomingu/ThreeGeoJSON#readme"
+  "homepage": "https://github.com/jdomingu/ThreeGeoJSON#readme",
+  "dependencies": {
+    "index.js": "0.0.3",
+    "three": "^0.101.1"
+  },
+  "devDependencies": {
+    "parcel": "^1.11.0"
+  }
 }

@@ -4,8 +4,9 @@ Iterates through the latitude and longitude values, converts the values to XYZ c
 and draws the geoJSON geometries.
 
 */
+import * as THREE from 'three';
 
-function drawThreeGeo(json, radius, shape, materalOptions, container) {
+export function drawThreeGeo(json, radius, shape, materalOptions, container) {
     container = container || window.scene;
 
     var x_values = [];
@@ -92,7 +93,6 @@ function drawThreeGeo(json, radius, shape, materalOptions, container) {
         } else {
             throw new Error('The geoJSON is not valid.');
         }
-        //alert(geometry_array.length);
         return geometry_array;
     }
 
