@@ -1,6 +1,8 @@
 ThreeGeoJSON
 =======================
 
+**IMPORTANT**: This project has been retired and does not work with the current version of three.js. Turning this project into something other than the one-off it currently is would require a bit more time than I'm willing to sink in. Thanks to everyone who took an interest. 
+
 This project aims to be a simple way to render geojson data in 3D with three.js.
 
 ### Demo
